@@ -1,12 +1,15 @@
 import csv
+import os
 from datetime import datetime
 
 class PoliticianModel:
     def __init__(self):
-        self.politicians_file = '../model/data/politicians.csv'
-        self.campaigns_file = '../model/data/campaigns.csv'
-        self.promises_file = '../model/data/promises.csv'
-        self.updates_file = '../model/data/promise_updates.csv'
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(current_dir, "data")
+        self.politicians_file = os.path.join(data_dir, 'politicians.csv')
+        self.campaigns_file = os.path.join(data_dir, 'campaigns.csv')
+        self.promises_file = os.path.join(data_dir, 'promises.csv')
+        self.updates_file = os.path.join(data_dir, 'promise_updates.csv')
 
     def _read_csv(self, file_path):
         """Helper function สำหรับอ่านไฟล์ CSV ออกมาเป็น List ของ Dictionary"""
