@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>รายละเอียดคำสัญญา</title>
+</head>
+
+<body>
+    <h1>รายละเอียดคำสัญญา</h1>
+    <p><strong>ผู้ให้สัญญา:</strong> {{ promise.politician_name }} ({{ promise.party }})</p>
+    <p><strong>รายละเอียด:</strong> {{ promise.detail }}</p>
+    <p><strong>สถานะปัจจุบัน:</strong> {{ promise.status }}</p>
+
+    <h3>ประวัติการอัปเดตความคืบหน้า</h3>
+    <ul>
+        {% for u in updates %}
+        <li>[{{ u.update_date }}] - {{ u.update_detail }}</li>
+        {% else %}
+        <li>ยังไม่มีข้อมูลความคืบหน้า</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    {% if promise.status != "เงียบหาย" %}
+    <a href="/promise/{{ promise.id }}/update"><button>เพิ่มความคืบหน้า</button></a>
+    {% else %}
+    <p style="color:red;">* คำสัญญานี้สถานะ "เงียบหาย" ไม่สามารถอัปเดตได้เพิ่มเติม</p>
+    {% endif %}
+    <br><br>
+    <a href="/">กลับหน้าหลัก</a>
+</body>
+
+</html>

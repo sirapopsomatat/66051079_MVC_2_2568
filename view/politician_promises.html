@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>คำสัญญาของ {{ pol_name }}</title>
+</head>
+
+<body>
+    <h1>คำสัญญาทั้งหมดของ: {{ pol_name }}</h1>
+    <ul>
+        {% for p in promises %}
+        <li>
+            <strong>[{{ p.date }}]</strong> {{ p.detail }}
+            (สถานะ: {{ p.status }})
+            - <a href="/promise/{{ p.id }}">ดูรายละเอียด</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">กลับหน้าหลัก</a>
+</body>
+
+</html>

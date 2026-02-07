@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>อัปเดตความคืบหน้า</title>
+</head>
+
+<body>
+    <h1>เพิ่มความคืบหน้าของคำสัญญา</h1>
+    <p>สัญญา: {{ promise.detail }}</p>
+
+    <form method="POST">
+        <label>รายละเอียดความคืบหน้า:</label><br>
+        <textarea name="detail" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">บันทึกข้อมูล</button>
+        <a href="/promise/{{ promise.id }}">ยกเลิก</a>
+    </form>
+</body>
+
+</html>

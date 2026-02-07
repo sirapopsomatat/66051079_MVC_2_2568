@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ระบบติดตามคำสัญญานักการเมือง</title>
+</head>
+
+<body>
+    <h1>คำสัญญาช่วงหาเสียงทั้งหมด</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>วันที่ประกาศ</th>
+                <th>นักการเมือง</th>
+                <th>คำสัญญา</th>
+                <th>สถานะ</th>
+                <th>จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in promises %}
+            <tr>
+                <td>{{ p.date }}</td>
+                <td><a href="/politician/{{ p.politician_id }}">{{ p.politician_name }}</a></td>
+                <td>{{ p.detail }}</td>
+                <td>{{ p.status }}</td>
+                <td><a href="/promise/{{ p.id }}">ดูรายละเอียด</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
